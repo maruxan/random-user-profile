@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Flex, Text, useDisclosure } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
-import UserDetail from '../userDetail/userDetail';
-import UsersList from '../usersList/usersList';
 
-export default function Layout() {
+export default function Layout({ master, detail }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -16,8 +14,8 @@ export default function Layout() {
       </Flex>
       {/* Master/Detail */}
       <Flex>
-        <Box w={{ base: '100%', lg: '400px' }} p="4">
-          <UsersList onOpen={onOpen} />
+        <Box w={{ base: '100%', lg: '400px' }}>
+          {React.cloneElement(master, { onOpen: onOpen })}
         </Box>
         <Box
           position={{ base: 'absolute', lg: 'static' }}
@@ -27,7 +25,7 @@ export default function Layout() {
           hidden={!isOpen}
           bgColor="darkblue"
         >
-          <UserDetail onClose={onClose} />
+          {React.cloneElement(detail, { onClose: onClose })}
         </Box>
       </Flex>
     </Box>
