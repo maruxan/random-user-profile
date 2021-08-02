@@ -10,7 +10,6 @@ export default function UsersListItem({ user, onShowDetails, isSelected }) {
   };
 
   const bgColor = useColorModeValue('#EDF2F7', '#171923');
-  // const borderColor = useColorModeValue('#CBD5E0', '#2D3748');
 
   return (
     <Box
@@ -33,7 +32,7 @@ export default function UsersListItem({ user, onShowDetails, isSelected }) {
           <Text fontSize="lg" fontWeight="bold">
             {flatUser.fullName}
           </Text>
-          <Text>
+          <Text color="gray.500">
             {flatUser.city}, {flatUser.country}
           </Text>
         </Box>

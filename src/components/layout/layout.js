@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  Text,
-  theme,
-  useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../ui/ColorModeSwitcher';
+import { Box, Flex, useColorModeValue, useDisclosure } from '@chakra-ui/react';
+
+import Header from './header';
 
 export default function Layout({ master, detail }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -16,21 +10,7 @@ export default function Layout({ master, detail }) {
   return (
     <Box minH="100vh">
       {/* Header */}
-      <Flex
-        align="center"
-        justify="space-between"
-        p="4"
-        h="10vh"
-        w="full"
-        bgColor={bgColor}
-        pos="fixed"
-        zIndex="sticky"
-        top="0"
-        left="0"
-      >
-        <Text fontSize="xl">random-user-profile</Text>
-        <ColorModeSwitcher justifySelf="flex-end" />
-      </Flex>
+      <Header bgColor={bgColor} />
       {/* Master/Detail */}
       <Flex mt="10vh">
         {/* Master */}

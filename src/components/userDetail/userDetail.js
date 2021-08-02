@@ -40,7 +40,7 @@ export default function UserDetail({ onClose, user }) {
         </Button>
         <Text fontSize="xl">User Details</Text>
       </Flex>
-      <Box mt="6">
+      <Box my="6">
         <Image
           alt={flatUser.fullName}
           src={flatUser.image}

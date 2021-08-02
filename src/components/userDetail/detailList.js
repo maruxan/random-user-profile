@@ -6,7 +6,7 @@ export default function DetailList({ children, heading }) {
 
   return (
     <Box
-      mt="6"
+      mb="6"
       px="4"
       py="6"
       boxShadow="sm"
