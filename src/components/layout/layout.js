@@ -8,7 +8,7 @@ export default function Layout({ master, detail }) {
   const bgColor = useColorModeValue('gray.50', 'gray.800');
 
   return (
-    <Box minH="100vh">
+    <Box>
       {/* Header */}
       <Header bgColor={bgColor} />
       {/* Master/Detail */}

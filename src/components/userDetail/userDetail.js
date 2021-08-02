@@ -39,7 +39,7 @@ export default function UserDetail({ onClose, isOpen, user, clearUser }) {
   };
 
   return (
-    <SlideFade minH="100vh" in={isOpen} offsetY="0" offsetX={-8}>
+    <SlideFade h="full" in={isOpen} offsetY="0" offsetX={-8}>
       <Flex align="center">
         <Button onClick={closeDetailHandler} mr="4">
           <FaArrowLeft />
