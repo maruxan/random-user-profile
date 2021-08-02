@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   Image,
+  SlideFade,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -13,7 +14,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import DetailListItem from './detailListItem';
 import DetailList from './detailList';
 
-export default function UserDetail({ onClose, user }) {
+export default function UserDetail({ onClose, isOpen, user }) {
   const flatUser = {
     id: user.login.uuid,
     username: user.login.username,
@@ -33,7 +34,7 @@ export default function UserDetail({ onClose, user }) {
   const subColor = useColorModeValue('gray.400', 'gray.600');
 
   return (
-    <Box align="left" p="4" minH="100vh">
+    <SlideFade minH="100vh" in={isOpen} offsetY="0" offsetX={-8}>
       <Flex align="center">
         <Button onClick={onClose} mr="4">
           <FaArrowLeft />
@@ -94,6 +95,6 @@ export default function UserDetail({ onClose, user }) {
           text={flatUser.cell}
         />
       </DetailList>
-    </Box>
+    </SlideFade>
   );
 }
