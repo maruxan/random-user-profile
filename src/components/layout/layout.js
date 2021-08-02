@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  SlideFade,
-  useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue, useDisclosure } from '@chakra-ui/react';
 
 import Header from './header';
 
@@ -31,8 +25,7 @@ export default function Layout({ master, detail }) {
           p="4"
           zIndex="dropdown"
           hidden={!isOpen}
-          bgColor={bgColor}
-        >
+          bgColor={bgColor}>
           {detail &&
             React.cloneElement(detail, { onClose: onClose, isOpen: isOpen })}
         </Box>
