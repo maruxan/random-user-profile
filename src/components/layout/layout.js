@@ -1,29 +1,48 @@
 import React from 'react';
-import { Box, Flex, Text, useDisclosure } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Text,
+  theme,
+  useColorModeValue,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 
 export default function Layout({ master, detail }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const bgColor = useColorModeValue('gray.50', 'gray.800');
 
   return (
     <Box minH="100vh">
       {/* Header */}
-      <Flex align="center" justify="space-between" p="4">
+      <Flex
+        align="center"
+        justify="space-between"
+        p="4"
+        h="80px"
+        w="full"
+        bgColor={bgColor}
+        pos="fixed"
+        zIndex="sticky"
+        top="0"
+        left="0"
+      >
         <Text fontSize="xl">random-user-profile</Text>
         <ColorModeSwitcher justifySelf="flex-end" />
       </Flex>
       {/* Master/Detail */}
-      <Flex>
+      <Flex mt="80px">
         <Box w={{ base: '100%', lg: '40%', xl: '25%' }}>
           {React.cloneElement(master, { onOpen: onOpen })}
         </Box>
         <Box
-          position={{ base: 'absolute', lg: 'static' }}
+          position={{ base: 'fixed' }}
           w={{ base: '100%', lg: '60%', xl: '75%' }}
-          left="0"
-          zIndex="modal"
+          right="0"
+          zIndex="dropdown"
           hidden={!isOpen}
-          bgColor="darkblue"
+          bgColor={bgColor}
         >
           {detail && React.cloneElement(detail, { onClose: onClose })}
         </Box>
