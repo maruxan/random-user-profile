@@ -17,13 +17,13 @@ function App() {
       .then(({ data }) => {
         setUsers(data.results);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }, []);
 
   const master = (
-    <UsersList users={users} onUserSelect={user => setCurrentUser(user)} />
+    <UsersList users={users} onUserSelect={(user) => setCurrentUser(user)} />
   );
   const detail = currentUser ? <UserDetail user={currentUser} /> : null;
 

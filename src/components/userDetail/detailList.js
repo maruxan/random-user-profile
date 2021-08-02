@@ -13,8 +13,7 @@ export default function DetailList({ children, heading }) {
       borderRadius="md"
       maxW="700px"
       mx="auto"
-      bgColor={bgColor}
-    >
+      bgColor={bgColor}>
       <Heading as="h2" fontSize="2xl">
         {heading}
       </Heading>
