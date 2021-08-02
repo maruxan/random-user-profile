@@ -14,12 +14,12 @@ export default function Layout({ master, detail }) {
       </Flex>
       {/* Master/Detail */}
       <Flex>
-        <Box w={{ base: '100%', lg: '400px' }}>
+        <Box w={{ base: '100%', lg: '40%', xl: '25%' }}>
           {React.cloneElement(master, { onOpen: onOpen })}
         </Box>
         <Box
           position={{ base: 'absolute', lg: 'static' }}
-          w="100%"
+          w={{ base: '100%', lg: '60%', xl: '75%' }}
           left="0"
           zIndex="modal"
           hidden={!isOpen}
