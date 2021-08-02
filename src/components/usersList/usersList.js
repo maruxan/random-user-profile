@@ -16,7 +16,7 @@ export default function UsersList({
   };
 
   return (
-    <Box as="ul" p="4">
+    <Box as="ul" p="4" h="90vh" overflowY="scroll">
       {users.map(user => (
         <UsersListItem
           key={user.login.uuid}

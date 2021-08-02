@@ -20,7 +20,7 @@ export default function Layout({ master, detail }) {
         align="center"
         justify="space-between"
         p="4"
-        h="80px"
+        h="10vh"
         w="full"
         bgColor={bgColor}
         pos="fixed"
@@ -32,12 +32,14 @@ export default function Layout({ master, detail }) {
         <ColorModeSwitcher justifySelf="flex-end" />
       </Flex>
       {/* Master/Detail */}
-      <Flex mt="80px">
-        <Box w={{ base: '100%', lg: '40%', xl: '25%' }}>
+      <Flex mt="10vh">
+        {/* Master */}
+        <Box w={{ base: '100%', lg: '40%', xl: '25%' }} pos="fixed">
           {React.cloneElement(master, { onOpen: onOpen })}
         </Box>
+        {/* Detail */}
         <Box
-          position={{ base: 'absolute' }}
+          position="absolute"
           w={{ base: '100%', lg: '60%', xl: '75%' }}
           right="0"
           zIndex="dropdown"
