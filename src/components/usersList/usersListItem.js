@@ -10,6 +10,7 @@ export default function UsersListItem({ user, onShowDetails, isSelected }) {
   };
 
   const bgColor = useColorModeValue('#EDF2F7', '#171923');
+  console.log(isSelected);
 
   return (
     <Box
@@ -24,8 +25,7 @@ export default function UsersListItem({ user, onShowDetails, isSelected }) {
       bgColor={isSelected ? bgColor : 'transparent'}
       // border="2px"
       // borderColor={isSelected ? borderColor : 'transparent'}
-      onClick={() => onShowDetails(user)}
-    >
+      onClick={() => onShowDetails(user)}>
       <Flex align="center">
         <Avatar name={flatUser.fullName} src={flatUser.avatar} mr="4" />
         <Box>

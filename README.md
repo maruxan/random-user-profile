@@ -1,5 +1,9 @@
 # random-user-profile
 
+## Deployment
+
+You can see the page on: https://random-user-profile-challenge.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
