@@ -23,11 +23,7 @@ function App() {
   }, []);
 
   const master = (
-    <UsersList
-      users={users}
-      onUserSelect={user => setCurrentUser(user)}
-      currentUser={currentUser}
-    />
+    <UsersList users={users} onUserSelect={user => setCurrentUser(user)} />
   );
   const detail = currentUser ? <UserDetail user={currentUser} /> : null;
 

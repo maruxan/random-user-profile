@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import { ColorModeSwitcher } from '../ui/ColorModeSwitcher';
 
 export default function Layout({ master, detail }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,7 +37,7 @@ export default function Layout({ master, detail }) {
           {React.cloneElement(master, { onOpen: onOpen })}
         </Box>
         <Box
-          position={{ base: 'fixed' }}
+          position={{ base: 'absolute' }}
           w={{ base: '100%', lg: '60%', xl: '75%' }}
           right="0"
           zIndex="dropdown"
