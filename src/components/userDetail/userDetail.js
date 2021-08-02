@@ -14,7 +14,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import DetailListItem from './detailListItem';
 import DetailList from './detailList';
 
-export default function UserDetail({ onClose, isOpen, user }) {
+export default function UserDetail({ onClose, isOpen, user, clearUser }) {
   const flatUser = {
     id: user.login.uuid,
     username: user.login.username,
@@ -33,10 +33,15 @@ export default function UserDetail({ onClose, isOpen, user }) {
   // Subtitle color
   const subColor = useColorModeValue('gray.400', 'gray.600');
 
+  const closeDetailHandler = () => {
+    onClose();
+    clearUser();
+  };
+
   return (
     <SlideFade minH="100vh" in={isOpen} offsetY="0" offsetX={-8}>
       <Flex align="center">
-        <Button onClick={onClose} mr="4">
+        <Button onClick={closeDetailHandler} mr="4">
           <FaArrowLeft />
         </Button>
         <Text fontSize="xl">User Details</Text>

@@ -10,14 +10,16 @@ export default function UsersList({
   currentUser,
 }) {
   // Show user details
-  const showUserDetails = user => {
+  const showUserDetails = (user) => {
     onUserSelect(user);
     onOpen();
   };
 
+  console.log(currentUser);
+
   return (
     <Box as="ul" p="4" h="90vh" overflowY="scroll">
-      {users.map(user => (
+      {users.map((user) => (
         <UsersListItem
           key={user.login.uuid}
           user={user}

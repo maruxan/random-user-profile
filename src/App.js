@@ -22,10 +22,18 @@ function App() {
       });
   }, []);
 
+  console.log(currentUser);
+
   const master = (
-    <UsersList users={users} onUserSelect={(user) => setCurrentUser(user)} />
+    <UsersList
+      users={users}
+      onUserSelect={(user) => setCurrentUser(user)}
+      currentUser={currentUser}
+    />
   );
-  const detail = currentUser ? <UserDetail user={currentUser} /> : null;
+  const detail = currentUser ? (
+    <UserDetail user={currentUser} clearUser={() => setCurrentUser(null)} />
+  ) : null;
 
   return (
     <ChakraProvider theme={theme}>
