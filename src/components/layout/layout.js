@@ -25,7 +25,7 @@ export default function Layout({ master, detail }) {
           hidden={!isOpen}
           bgColor="darkblue"
         >
-          {React.cloneElement(detail, { onClose: onClose })}
+          {detail && React.cloneElement(detail, { onClose: onClose })}
         </Box>
       </Flex>
     </Box>
