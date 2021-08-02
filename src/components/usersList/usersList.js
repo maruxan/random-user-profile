@@ -3,7 +3,12 @@ import { Box } from '@chakra-ui/react';
 
 import UsersListItem from './usersListItem';
 
-export default function UsersList({ onOpen, onUserSelect, users }) {
+export default function UsersList({
+  onOpen,
+  onUserSelect,
+  users,
+  currentUser,
+}) {
   // Show user details
   const showUserDetails = user => {
     onUserSelect(user);
@@ -17,6 +22,7 @@ export default function UsersList({ onOpen, onUserSelect, users }) {
           key={user.login.uuid}
           user={user}
           onShowDetails={showUserDetails}
+          isSelected={user === currentUser}
         />
       ))}
     </Box>
