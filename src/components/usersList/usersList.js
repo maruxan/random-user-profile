@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import UsersListItem from './usersListItem';
 
@@ -12,12 +12,11 @@ export default function UsersList({ onOpen, onUserSelect, users }) {
 
   return (
     <Box as="ul" p="4">
-      <Button onClick={onOpen}>Open Detail</Button>
       {users.map(user => (
         <UsersListItem
           key={user.login.uuid}
           user={user}
-          onClick={() => showUserDetails(user)}
+          onShowDetails={showUserDetails}
         />
       ))}
     </Box>

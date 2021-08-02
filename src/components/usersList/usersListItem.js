@@ -1,8 +1,7 @@
 import React from 'react';
-import { Avatar, Box, Flex, VStack, Text, HStack } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
 
-export default function UsersListItem({ user }) {
-  console.log(user);
+export default function UsersListItem({ user, onShowDetails }) {
   const flatUser = {
     fullName: `${user.name.first} ${user.name.last}`,
     city: user.location.city,
@@ -11,7 +10,15 @@ export default function UsersListItem({ user }) {
   };
 
   return (
-    <Box as="li" listStyleType="none" p="2" my="3">
+    <Box
+      as="li"
+      listStyleType="none"
+      p="2"
+      mb="4"
+      borderRadius="md"
+      _hover={{ bgColor: 'current' }}
+      onClick={() => onShowDetails(user)}
+    >
       <Flex align="center">
         <Avatar name={flatUser.fullName} src={flatUser.avatar} mr="4" />
         <Box>
