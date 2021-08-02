@@ -10,20 +10,21 @@ export default function UsersListItem({ user, onShowDetails, isSelected }) {
   };
 
   const bgColor = useColorModeValue('#EDF2F7', '#171923');
-  const borderColor = useColorModeValue('#CBD5E0', '#2D3748');
+  // const borderColor = useColorModeValue('#CBD5E0', '#2D3748');
 
   return (
     <Box
       as="li"
       listStyleType="none"
-      p="2"
-      mb="4"
+      px="2"
+      py="3"
+      mb="2"
       borderRadius="md"
       cursor="pointer"
       _hover={{ bgColor: bgColor }}
       bgColor={isSelected ? bgColor : 'transparent'}
-      border="2px"
-      borderColor={isSelected ? borderColor : 'transparent'}
+      // border="2px"
+      // borderColor={isSelected ? borderColor : 'transparent'}
       onClick={() => onShowDetails(user)}
     >
       <Flex align="center">
