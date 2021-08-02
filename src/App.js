@@ -9,26 +9,39 @@ import UserDetail from './components/userDetail/userDetail';
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch users on page load
+  // Fetch users
   useEffect(() => {
     axios
-      .get('https://randomuser.me/api/?results=50')
+      .get(`https://randomuser.me/api/?page=${currentPage}&results=10`)
       .then(({ data }) => {
-        setUsers(data.results);
+        const fetchedUsers = [...data.results];
+
+        setUsers((prevState) => {
+          const newUsers = [...prevState, ...fetchedUsers];
+          return newUsers;
+        });
+        setIsLoading(false);
       })
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [currentPage]);
 
-  console.log(currentUser);
+  const loadMoreUsersHandler = () => {
+    setIsLoading(true);
+    setCurrentPage(currentPage + 1);
+  };
 
   const master = (
     <UsersList
       users={users}
       onUserSelect={(user) => setCurrentUser(user)}
       currentUser={currentUser}
+      onLoadMore={loadMoreUsersHandler}
+      isLoading={isLoading}
     />
   );
   const detail = currentUser ? (

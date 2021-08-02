@@ -33,6 +33,7 @@ export default function UserDetail({ onClose, isOpen, user, clearUser }) {
   // Subtitle color
   const subColor = useColorModeValue('gray.400', 'gray.600');
 
+  // Close detail view and clears current user
   const closeDetailHandler = () => {
     onClose();
     clearUser();
