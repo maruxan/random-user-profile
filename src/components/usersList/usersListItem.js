@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import { FaGratipay } from 'react-icons/fa';
 
 export default function UsersListItem({ user, onShowDetails }) {
   const flatUser = {
@@ -9,6 +10,9 @@ export default function UsersListItem({ user, onShowDetails }) {
     avatar: user.picture.thumbnail,
   };
 
+  const hoverBgColor = useColorModeValue('#E2E8F0', '#4A5568');
+  console.log(hoverBgColor);
+
   return (
     <Box
       as="li"
@@ -16,7 +20,7 @@ export default function UsersListItem({ user, onShowDetails }) {
       p="2"
       mb="4"
       borderRadius="md"
-      _hover={{ bgColor: 'current' }}
+      _hover={{ bgColor: hoverBgColor }}
       onClick={() => onShowDetails(user)}
     >
       <Flex align="center">
